@@ -17,7 +17,7 @@ class Api::V1::CategoriesController < ApplicationController
 
     def update
         category = Category.find(params[:id])
-        category.update(categori_params)
+        category.update(category_params)
         render json: category
     end
 

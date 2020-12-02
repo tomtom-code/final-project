@@ -3,6 +3,7 @@ class Api::V1::UsersController < ApplicationController
     def index
         users = User.all
         render json: users, include: :accounts
+        
     end
 
     def show
@@ -32,6 +33,6 @@ class Api::V1::UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:name,:password,:email )
+        params.require(:user).permit(:name,:password,:email)
     end
 end
