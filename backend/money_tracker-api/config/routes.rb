@@ -3,9 +3,13 @@ Rails.application.routes.draw do
  namespace :api do
   namespace :v1 do
     resources :accounts
-    resources :users
     resources :transactions
     resources :categories
+    resources :users, only: [:create]
+    post '/login', to: 'auth#create'
+    delete '/logout', to: 'auth#destroy'
+    get '/logged_in', to: 'application#logged_in?'
+
   end
  end 
 end
