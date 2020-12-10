@@ -5,7 +5,7 @@ import LoginPage from './components/LoginPage'
 import LoginForm from './components/LoginForm'
 import SignupForm from './components/SignupForm'
 // import UserUpdateForm from './components/UserUpdateForm'
-// import MainPage from './components/MainPage'
+import MainPage from './components/MainPage'
 
 import {
   BrowserRouter,
@@ -15,13 +15,15 @@ import {
   useHistory
 } from "react-router-dom";
 
-class App extends Component() {
-  return() {
+class App extends Component {
+
+  render() {
     return(
       <div>
         <BrowserRouter>
           <Switch>
-            <Route 
+            
+            <Route
               exact 
               path='/'
               render={routeProps =>
@@ -46,14 +48,26 @@ class App extends Component() {
               <SignupForm 
               {...routeProps}/>
               } 
-            />  
+            /> 
+
+            <Route
+              exact
+              path='/MainPage'
+              render={routeProps =>
+              <MainPage
+              {...routeProps}/>
+              }
+            />
+
+            
+             
 
 
 
           </Switch>
         </BrowserRouter>
       </div>
-    );
+    )
   }
 }
  

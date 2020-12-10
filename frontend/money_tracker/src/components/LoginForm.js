@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from "react-router-dom";
 
 class LoginForm extends Component {
     constructor(){
@@ -29,7 +30,7 @@ class LoginForm extends Component {
 
         const user = {name, password}
 
-        fetch("http://localhost:3000/login", {
+        fetch("http://localhost:3000/users", {
             method: "POST",
             headers: {
                 "Accept": "application/json",
@@ -60,12 +61,14 @@ class LoginForm extends Component {
     render() {
         return (
             <div>
+                {this.greeting()}
                 <form onSubmit={this.login}>
                     <input type="text" name="name" placeholder="Name" onChange={this.handleChange} />
                     <input type="text" name="password" placeholder="Password" onChange={this.handleChange} />
                     <button type="submit">Submit</button>
                 </form>
-                {this.greeting()}
+                
+                <Link to="/"> Home Page</Link>
             </div>
         );
     }

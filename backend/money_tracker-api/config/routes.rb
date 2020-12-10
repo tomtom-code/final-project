@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :accounts
     resources :transactions
     resources :categories
-    resources :users, only: [:create]
+    resources :users, only: [:create, :index]
     post '/login', to: 'auth#create'
     delete '/logout', to: 'auth#destroy'
     get '/logged_in', to: 'application#logged_in?'
