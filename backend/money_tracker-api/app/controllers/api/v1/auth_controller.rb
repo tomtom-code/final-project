@@ -4,8 +4,9 @@ class Api::V1::AuthController < ApplicationController
     # create an account without being logged in.
  
   def create
-    @user = User.find_by(name: user_login_params[:name])
    
+    @user = User.find_by(name: user_login_params[:name])
+  
     # User authenticate method comes from BCrypt.
     if @user && @user.authenticate(user_login_params[:password])
       # encode_token method comes from ApplicationController.

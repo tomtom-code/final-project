@@ -35,6 +35,12 @@ class Api::V1::UsersController < ApplicationController
         render json: user
         
     end
+     
+    
+    def get_user
+        user = self.current_user
+        render json: user
+    end
 
 
     private

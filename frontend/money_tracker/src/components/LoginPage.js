@@ -12,9 +12,21 @@ import {
 
 
 class LoginPage extends Component {
+
+    //if current user  has not logout, it will redirect to MainPage
+    checkForUser =()=>{
+        console.log(this.props.user)
+        if(this.props.user){
+            this.props.history.push("/MainPage")
+        }
+    }
+
+
+
     render() {
         return (
             <div>
+                {this.checkForUser()}
                 <h1>Welcome to Money Tracker$</h1><br/>
 
                 <Link to="/login">Login</Link><br/><br/>

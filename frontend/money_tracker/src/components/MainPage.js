@@ -13,7 +13,7 @@ class MainPage extends Component {
         return(
             <div>
 
-                <h1>Hello Tom</h1>
+                <h1>Hello User</h1>
 
 
 

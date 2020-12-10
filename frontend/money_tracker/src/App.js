@@ -17,6 +17,32 @@ import {
 
 class App extends Component {
 
+  state ={
+    currentUser: null
+  }
+
+  //this will remain log in even though you refresh the web page, (keep your token)
+  componentDidMount(){
+    console.log(this.state.currentUser)
+    if(localStorage.token){
+      fetch("http://localhost:3000/api/v1/user",{
+        headers: {
+          "Authorization": `Bearer ${localStorage.token}`
+        }
+      })
+      .then(res => res.json())
+      .then(user => this.setState({currentUser: user}))
+
+    }
+  }
+
+  handleLogin = (user) => {
+    this.setState({
+      currentUser: user
+    }) 
+  }
+
+
   render() {
     return(
       <div>
@@ -28,6 +54,7 @@ class App extends Component {
               path='/'
               render={routeProps =>
               <LoginPage 
+              user ={this.state.currentUser}
               {...routeProps}/>
               } 
             />
@@ -36,7 +63,9 @@ class App extends Component {
               exact 
               path='/login'
               render={routeProps =>
-              <LoginForm 
+              <LoginForm
+              user ={this.state.currentUser}
+              handleLogin={this.handleLogin} 
               {...routeProps}/>
               } 
             />
@@ -55,6 +84,7 @@ class App extends Component {
               path='/MainPage'
               render={routeProps =>
               <MainPage
+              user={this.state.currentUser}
               {...routeProps}/>
               }
             />

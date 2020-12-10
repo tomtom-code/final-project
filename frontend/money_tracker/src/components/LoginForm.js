@@ -7,11 +7,15 @@ class LoginForm extends Component {
         this.state = {
             name: "",
             password: "",
-            loggedIn: false,
-            currentUser: ""
+            
         }
     }
 
+    componentDidMount(){
+        if(this.props.user){
+            this.props.history.push("/MainPage")
+        }
+    }
 
     handleChange = (event) => {
         const { name, value } = event.target
@@ -30,7 +34,7 @@ class LoginForm extends Component {
 
         const user = {name, password}
 
-        fetch("http://localhost:3000/users", {
+        fetch("http://localhost:3000/api/v1/login", {
             method: "POST",
             headers: {
                 "Accept": "application/json",
@@ -45,7 +49,8 @@ class LoginForm extends Component {
             // Once it is recieved the token is decrypted and access to data is granted
             localStorage.setItem("token", response.jwt)
             console.log(response)
-            this.setState({currentUser: response.user.name, loggedIn: true})
+            this.props.handleLogin(response.user)
+            this.props.history.push('/MainPage')
         })
     }
 
@@ -59,12 +64,14 @@ class LoginForm extends Component {
 
 
     render() {
+        
         return (
+            
             <div>
                 {this.greeting()}
                 <form onSubmit={this.login}>
                     <input type="text" name="name" placeholder="Name" onChange={this.handleChange} />
-                    <input type="text" name="password" placeholder="Password" onChange={this.handleChange} />
+                    <input type="password" name="password" placeholder="Password" onChange={this.handleChange} />
                     <button type="submit">Submit</button>
                 </form>
                 
