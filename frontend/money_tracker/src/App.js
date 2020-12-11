@@ -85,6 +85,7 @@ class App extends Component {
               render={routeProps =>
               <MainPage
               user={this.state.currentUser}
+              handleLogin={this.handleLogin}
               {...routeProps}/>
               }
             />
