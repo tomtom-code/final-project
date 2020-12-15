@@ -8,6 +8,7 @@ import SignupForm from './components/SignupForm'
 // import UserUpdateForm from './components/UserUpdateForm'
 import MainPage from './components/MainPage'
 import UpdateInfo from './components/UpdateInfo'
+import Chart from './components/Chart'
 
 import {
   BrowserRouter,
@@ -99,6 +100,17 @@ class App extends Component {
               path='/UpdateInfo'
               render={routeProps =>
               <UpdateInfo
+              user={this.state.currentUser}
+              handleLogin={this.handleLogin}
+              {...routeProps}/>
+              }
+            />
+
+            <Route
+              exact
+              path='/Chart'
+              render={routeProps =>
+              <Chart
               user={this.state.currentUser}
               handleLogin={this.handleLogin}
               {...routeProps}/>

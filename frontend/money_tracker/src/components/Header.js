@@ -25,6 +25,10 @@ class Header extends Component {
         this.props.history.push('/UpdateInfo')
     }
 
+    chartBtn = () => {
+        this.props.history.push('/Chart')
+    }
+
     
 
     handleLogout = () => {
@@ -39,12 +43,13 @@ class Header extends Component {
             <div>
                 Ï<h5>
 
-                    Header
+                    Money Tracker$
 
                 </h5>Ï
                 <button onClick ={() =>this.handleLogout()}>Logout</button>
                 <button onClick ={() =>this.mainBtn()}>Main</button>
                 <button onClick ={() =>this.updateInfoBtn()}>Update Info</button>
+                <button onClick ={() =>this.chartBtn()}>Chart</button>
 
             </div>
         )
