@@ -5,6 +5,31 @@ import Header from './Header'
 
 class UpdateInfo extends Component {
 
+    // handleSubmit = () => {
+    //     e.preventDefault()
+
+    //     fetch("http://localhost:3000/api/v1/users", {
+    //         method: "PATCH",
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             Accept: 'application/json',
+    //             "Authorization": `Bearer ${localStorage.token}`
+    //         },
+    //         body: JSON.stringify({
+    //             'name': name,
+    //             'password': password,
+    //             'email': email
+
+    //         })
+    //     })
+    //     .then(res=>res.json())
+    //     .then(updateUser => {
+
+    //     })
+    // }
+
+
+
     render() {
         return (
             <div>
