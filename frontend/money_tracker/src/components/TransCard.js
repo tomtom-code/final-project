@@ -11,7 +11,11 @@ class TransCard extends Component {
                 <h5>
                     category : {this.props.transaction.category}<br></br>
                     ${this.props.transaction.amount}  {this.props.transaction.description}
+
                 </h5>
+                <div>
+                <button onClick={() => {this.props.delete(this.props.transaction.id)}}>Remove</button>
+                </div>
 
 
                     

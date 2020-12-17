@@ -26,9 +26,12 @@ class MainPage extends Component {
         })
         .then(res => res.json())
         .then(data =>{
+            console.log(data)
+            
             this.setState({
                 transactions: data
             })
+            
         })
     }
 
@@ -40,13 +43,52 @@ class MainPage extends Component {
 
     addNewTrans =(e) => {
         e.preventDefault()
-        console.log(e.target[0].value)
-        // let date = e.target[0].value
-        // let category = e.target[1].value
-        // let description = e.target[2].value
-        // let amount = e.target[3].value
+        console.log(e.target[1].value)
+        let date = e.target[0].value
+        let category = e.target[1].value
+        let description = e.target[2].value
+        let amount = parseFloat(e.target[3].value)
+        let user = this.props.user.id
+
+        fetch(transactionsUrl, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        "Authorization": `Bearer ${localStorage.token}`
+      },
+      body: JSON.stringify({
+        "date": date,
+        "category": category,
+        "description": description,
+        "amount": amount,
+        "user_id": user
+
+
+      })
+    })
+    .then(res => res.json())
+    .then(newTrans => {
+      return this.setState({
+        transactions: [...this.state.transactions,newTrans]
+      })
+    })
 
     }
+
+    // delete
+  delete = (tranId) =>{
+    // console.log(tranId)
+    let updateTransList = this.state.transactions.filter(transaction => transaction.id !== tranId)
+    
+    fetch(`http://localhost:3000/api/v1/transactions/${tranId}`, {
+      method:"DELETE"
+      })
+      .then(this.setState({
+        transactions: updateTransList
+      }))
+    
+  }
 
     
 
@@ -60,10 +102,12 @@ class MainPage extends Component {
         
         return(
             <div>
+                {this.props.user?
+                <div>
                 <Header handleLogin={this.props.handleLogin} history={this.props.history}/>
                 <div> 
 
-                 <h1>Hello {this.props.user? this.props.user.name : null}</h1>
+                 <h1>Hello  {this.props.user.name}</h1>
 
                  <button onClick={(e) => {this.showModal(e)}}> New Transaction</button>
                  <Modal addNewTrans={this.addNewTrans} onClose={this.showModal} show={this.state.show}></Modal>
@@ -71,8 +115,12 @@ class MainPage extends Component {
                 
                  {/* <UpdateInfo user={this.props.user}/> */}
 
-                 <TransContainer transactions={this.state.transactions}/>
+                 <TransContainer transactions={this.state.transactions.filter(transaction => transaction.user_id === this.props.user.id)}
+                 delete={this.delete}
+                 />
                 </div>
+                </div>
+                : null}
 
             </div>
 

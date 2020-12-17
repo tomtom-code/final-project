@@ -20,7 +20,7 @@ class Modal extends Component {
                     <div>
 
                     <h3>Transaction Form</h3>
-                        <form>
+                        <form onSubmit={(e) => this.props.addNewTrans(e)}>
                         <input type="date" name="date" placeholder="input the date" className="input-text"/>
                         <br/>
                         <label>

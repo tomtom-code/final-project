@@ -12,7 +12,9 @@ class TransContainer extends Component {
 
                  {this.props.transactions.map(transaction => (
 
-                     <TransCard transaction={transaction}/>
+                     <TransCard transaction={transaction}
+                     delete={this.props.delete}
+                     />
 
                  )
                  )}
