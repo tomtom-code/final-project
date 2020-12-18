@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header'
 import TransContainer from './TransContainer'
+import {Navbar, Form, Button, Nav, FormControl } from 'react-bootstrap';
 import Modal from './Modal'
 // import Modal from 'react-modal'
 // import UpdateInfo from './UpdateInfo'
@@ -104,22 +105,22 @@ class MainPage extends Component {
             <div>
                 {this.props.user?
                 <div>
-                <Header handleLogin={this.props.handleLogin} history={this.props.history}/>
-                <div> 
+                  <Header handleLogin={this.props.handleLogin} history={this.props.history}/>
+                    <div> 
 
-                 <h1>Hello  {this.props.user.name}</h1>
+                    <center><h1>Hello  {this.props.user.name}</h1></center>
 
-                 <button onClick={(e) => {this.showModal(e)}}> New Transaction</button>
-                 <Modal addNewTrans={this.addNewTrans} onClose={this.showModal} show={this.state.show}></Modal>
+                    <button type='button' class='btn btn-success btn-sm' onClick={(e) => {this.showModal(e)}}> New Transaction</button>
+                    <Modal addNewTrans={this.addNewTrans} onClose={this.showModal} show={this.state.show}></Modal>
                 
                 
-                 {/* <UpdateInfo user={this.props.user}/> */}
-
-                 <TransContainer transactions={this.state.transactions.filter(transaction => transaction.user_id === this.props.user.id)}
-                 delete={this.delete}
-                 />
-                </div>
-                </div>
+        
+                    <br/><br/>
+                    <TransContainer transactions={this.state.transactions.filter(transaction => transaction.user_id === this.props.user.id)}
+                    delete={this.delete}
+                    />
+                    </div>
+                  </div>
                 : null}
 
             </div>

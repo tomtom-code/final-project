@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Form } from 'react-bootstrap';
 import Header from './Header'
-// import { Card, Button, Container} from 'react-bootstrap'
+import { Card, Button, Container} from 'react-bootstrap'
 
 
 class UpdateInfo extends Component {
@@ -71,23 +72,36 @@ class UpdateInfo extends Component {
                 <div>
 
                     <h3>Update Info Page</h3>
-                
-                    Username: {this.props.user.name}
                     <br/>
-                    Email: {this.props.user.email}
+                <center>
+                <Card border="secondary" style={{ height: '30rem', width: '27rem'}}>
                     <br/>
+                    <Card.Title as='h5'>Username: {this.props.user.name}</Card.Title>
+                    <br/>
+                    <Card.Title as='h5'>Email: {this.props.user.email}</Card.Title>
+                    <br/>
+                    <Card.Body>
 
-                    <form onSubmit={(e) => this.handleSubmit(e)} onChange={(e) => this.handleChange(e)}>
-                    <input type="name" name="name" value={this.state.name} className="input-text"/>
-                    <br/>
+                    <Form onSubmit={(e) => this.handleSubmit(e)} onChange={(e) => this.handleChange(e)}>
+
+                        <Form.Group controlId="formBasicName">
+                            <Form.Label>Username:</Form.Label>
+                            <Form.Control type="name" name="name" value={this.state.name} className="input-text"/>
+                        </Form.Group>
+                         <br/>
                     
-                    <input type="email" name="email" value={this.state.email} className="input-text"/>
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label>Email:</Form.Label>
+                            <Form.Control type="email" name="email" value={this.state.email} className="input-text"/>
+                        </Form.Group>
+                        <br/>
+
+                        <Button type="submit" variant="outline-primary" className="submit">Submit</Button>
                     <br/>
-                    <input type="submit" name="submit" value="Update Info" className="submit"/>
-                    <br/>
-                    </form>
-                
-                
+                    </Form>
+                    </Card.Body>
+                </Card>
+                </center>
                 </div>
                 :null}
 

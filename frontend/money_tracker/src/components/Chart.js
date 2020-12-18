@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header'
-import {Pie} from 'react-chartjs-2';
+import {Pie, Bar} from 'react-chartjs-2';
 // import { Card, Button, Container} from 'react-bootstrap'
 
 

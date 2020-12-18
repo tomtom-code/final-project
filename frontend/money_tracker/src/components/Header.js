@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Navbar, Form, Button, Nav, FormControl } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 // import { Card, Button, Container} from 'react-bootstrap'
 
 
@@ -41,16 +43,19 @@ class Header extends Component {
     render() {
         return (
             <div>
-                Ï<h5>
-
-                    Money Tracker$
-
-                </h5>Ï
-                <button onClick ={() =>this.handleLogout()}>Logout</button>
-                <button onClick ={() =>this.mainBtn()}>Main</button>
-                <button onClick ={() =>this.updateInfoBtn()}>Update Info</button>
-                <button onClick ={() =>this.chartBtn()}>Chart</button>
-
+                Ï<Navbar bg="primary" variant="dark" border="primary">
+                    <Navbar.Brand href="#home">Money Tracker$</Navbar.Brand> 
+                    <Nav className='mr-auto'>
+                    <Button type='button' variant='info' onClick ={() =>this.handleLogout()}>Logout</Button>
+                    <br/>
+                    <button type='button' class="btn btn-secondary btn-sm" onClick ={() =>this.mainBtn()}>Main</button>
+                    <br/>
+                    <button type='button' class="btn btn-warning btn-sm" onClick ={() =>this.updateInfoBtn()}>Update Info</button>
+                    <br/>
+                    <button type='button' class="btn btn-light btn-sm" onClick ={() =>this.chartBtn()}>Chart</button>
+                    </Nav>
+                </Navbar>
+                
             </div>
         )
     }

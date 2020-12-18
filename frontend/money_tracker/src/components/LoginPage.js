@@ -33,7 +33,7 @@ class LoginPage extends Component {
                 <BlankHeader/>
                 <br/><br/>
                 <center>
-                <Card border="secondary" style={{ width: '26rem'}}>
+                <Card border="secondary" style={{ height: '20rem', width: '26rem'}}>
                     <br></br>
                     {this.checkForUser()}
                     <Card.Title as='h2'>Welcome to Money Tracker$</Card.Title>
