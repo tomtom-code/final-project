@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { Card, Form, Button } from 'react-bootstrap';
 import {Link} from "react-router-dom";
+import BlankHeader from './BlankHeader'
+
 
 class LoginForm extends Component {
     constructor(){
@@ -68,14 +71,34 @@ class LoginForm extends Component {
         return (
             
             <div>
-                {this.greeting()}
-                <form onSubmit={this.login}>
-                    <input type="text" name="name" placeholder="Name" onChange={this.handleChange} />
-                    <input type="password" name="password" placeholder="Password" onChange={this.handleChange} />
-                    <button type="submit">Submit</button>
-                </form>
-                
-                <Link to="/"> Home Page</Link>
+                <BlankHeader />
+                <br/><br/>
+                <center>
+                <Card border="secondary" style={{width: '20rem'}}>
+                <br/><br/>
+                <Card.Title as='h3'>{this.greeting()}</Card.Title>
+                <Card.Body>
+
+                <Form onSubmit={this.login}>
+
+                    <Form.Group controlId="formBasicName">
+                        <Form.Label>Name:</Form.Label>
+                        <Form.Control type="text" name="name" placeholder="Name" onChange={this.handleChange} />
+                    </Form.Group>
+
+                    <Form.Group controlId="formBasicPassword">
+                        <Form.Label>Password:</Form.Label>
+                        <Form.Control type="password" name="password" placeholder="Password" onChange={this.handleChange} />
+                    </Form.Group>
+
+
+                    <Button variant='primary' type="submit">Submit</Button>
+                </Form>
+                <br/>
+                    <Link to="/"> Home Page</Link>
+                </Card.Body>
+                </Card>
+                </center>
             </div>
         );
     }

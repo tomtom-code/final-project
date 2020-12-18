@@ -4,7 +4,7 @@ import TransContainer from './TransContainer'
 import Modal from './Modal'
 // import Modal from 'react-modal'
 // import UpdateInfo from './UpdateInfo'
-import { Link, Redirect } from 'react-router-dom';
+// import { Link, Redirect } from 'react-router-dom';
 
 const transactionsUrl = 'http://localhost:3000/api/v1/transactions'
 

@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { Button, Nav, Card } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
+import BlankHeader from './BlankHeader';
+
 import {
     BrowserRouter,
     Switch,
@@ -26,14 +30,29 @@ class LoginPage extends Component {
     render() {
         return (
             <div>
-                {this.checkForUser()}
-                <h1>Welcome to Money Tracker$</h1><br/>
+                <BlankHeader/>
+                <br/><br/>
+                <center>
+                <Card border="secondary" style={{ width: '26rem'}}>
+                    <br></br>
+                    {this.checkForUser()}
+                    <Card.Title as='h2'>Welcome to Money Tracker$</Card.Title>
+                    <Card.Body>
+                    <LinkContainer to="/login">
+                    <Button variant="outline-primary">Login</Button>
+                    </LinkContainer><br/><br/>
 
-                <Link to="/login">Login</Link><br/><br/>
-                <Link to="/signup">SignUp</Link>
 
-                {/* <a href="/signup">SignUp</a><br/><br/>
-                <a href="/login">Login</a> */}
+                    
+                    <LinkContainer to="/signup">
+                    <Button variant="outline-info">Signup</Button>
+                    </LinkContainer>
+
+                    {/* <a href="/signup">SignUp</a><br/><br/>
+                    <a href="/login">Login</a> */}
+                    </Card.Body>
+                </Card>
+                </center>
             </div>
         );
     }

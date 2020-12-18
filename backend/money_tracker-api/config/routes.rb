@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :accounts
     resources :transactions
     resources :categories
-    resources :users, only: [:create, :index]
+    resources :users
   end
  end 
 end
