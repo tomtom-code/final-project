@@ -29,20 +29,20 @@ accounts = [
 accounts.each {| account | Account.create(account)}
 
 transactions = [
-    {date: "10-13-2020", account_id: Account.first.id, amount: 6.23, category: "Food", description: "happy hour from Sushi Bar"},
-    {date: "10-4-2020", account_id: Account.first.id, amount: 7.35, category: "Beauty", description: "hair cut"},
-    {date: "10-23-2020", account_id: Account.first.id, amount: 20.00, category: "Car", description: "gas"},
-    {date: "10-14-2020", account_id: Account.second.id, amount: 78.73, category: "Groceries", description: "milk, fruit, vegetable...etc"},
-    {date: "10-27-2020", account_id: Account.second.id, amount: 37.35, category: "Clothes", description: "forever 21 items"},
-    {date: "10-18-2020", account_id: Account.second.id, amount: 32.57, category: "Entertainment", description: "bowling"},
-    {date: "10-2-2020", account_id: Account.third.id, amount: 500.00, category: "House", description: "monthily rent"},
-    {date: "10-3-2020", account_id: Account.third.id, amount: 120.00, category: "Utilities", description: "power, internet, phone bills"},
-    {date: "10-2-2020", account_id: Account.third.id, amount: 600.00, category: "Education", description: "school tuition"}
+    {date: "10-13-2020", amount: 6.23, category: "Food", description: "happy hour from Sushi Bar", user_id: User.first.id },
+    {date: "10-4-2020", amount: 7.35, category: "Beauty", description: "hair cut", user_id: User.first.id},
+    {date: "10-23-2020", amount: 20.00, category: "Car", description: "gas", user_id: User.first.id},
+    {date: "10-14-2020", amount: 78.73, category: "Groceries", description: "milk, fruit, vegetable...etc", user_id: User.first.id},
+    {date: "10-27-2020", amount: 37.35, category: "Clothes", description: "forever 21 items", user_id: User.first.id},
+    {date: "10-18-2020", amount: 32.57, category: "Entertainment", description: "bowling", user_id: User.first.id},
+    {date: "10-2-2020", amount: 500.00, category: "House", description: "monthily rent", user_id: User.first.id},
+    {date: "10-3-2020", amount: 120.00, category: "Utilities", description: "power, internet, phone bills", user_id: User.first.id},
+    {date: "10-2-2020", amount: 600.00, category: "Education", description: "school tuition", user_id: User.first.id}
     
     
 ]
 
-transactions.each {| transaction | Transaction.create(transaction)}
+transactions.each {| transaction | Transaction.create!(transaction)}
 
 categories = [
     {name: "Food"},
