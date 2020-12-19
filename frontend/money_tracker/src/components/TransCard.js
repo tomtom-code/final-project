@@ -8,26 +8,27 @@ class TransCard extends Component {
         return (
             <div>
                 <Card border="info" className='m-3' style={{ width: '18rem', height: '20rem' }}>
-                <h3>{this.props.transaction.date}</h3>
-                <Card.Body>
-                <h5>
-                <Card.Title>category : {this.props.transaction.category}</Card.Title><br></br>
-                    ${this.props.transaction.amount}
-                    <br/><br/>  
-                    memo: {this.props.transaction.description}
+                    <Card.Header><h3>{this.props.transaction.date}</h3></Card.Header>
+                    <Card.Body>
+                    <h5>
+                    <Card.Title>category : {this.props.transaction.category}</Card.Title><br></br>
+                        ${this.props.transaction.amount}
+                        <br/><br/>  
+                        memo: {this.props.transaction.description}
 
-                </h5>
-                <div>
-                <button type='button' class="btn btn-outline-danger btn-sm" onClick={() => {this.props.delete(this.props.transaction.id)}}>Remove</button>
-                </div>
+                    </h5>
+                    <br/>
+                    <div>
+                    <button type='button' class="btn btn-outline-danger btn-sm" onClick={() => {this.props.delete(this.props.transaction.id)}}>Remove</button>
+                    </div>
 
-                </Card.Body>
+                    </Card.Body>
 
                     
                     
                 
 
-            </Card>
+                </Card>
             </div>
         )
     }

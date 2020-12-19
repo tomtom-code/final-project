@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Header from './Header'
 import TransContainer from './TransContainer'
 import {Navbar, Form, Button, Nav, FormControl } from 'react-bootstrap';
-import Modal from './Modal'
+// import Modal from './Modal'
+import Example from './Example'
 // import Modal from 'react-modal'
 // import UpdateInfo from './UpdateInfo'
 // import { Link, Redirect } from 'react-router-dom';
@@ -110,10 +111,10 @@ class MainPage extends Component {
 
                     <center><h1>Hello  {this.props.user.name}</h1></center>
 
-                    <button type='button' class='btn btn-success btn-sm' onClick={(e) => {this.showModal(e)}}> New Transaction</button>
-                    <Modal addNewTrans={this.addNewTrans} onClose={this.showModal} show={this.state.show}></Modal>
+                    {/* <button type='button' class='btn btn-success btn-sm' onClick={(e) => {this.showModal(e)}}> New Transaction</button>
+                    <Modal addNewTrans={this.addNewTrans} onClose={this.showModal} show={this.state.show}></Modal> */}
                 
-                
+                    <Example addNewTrans={this.addNewTrans}/>
         
                     <br/><br/>
                     <TransContainer transactions={this.state.transactions.filter(transaction => transaction.user_id === this.props.user.id)}
